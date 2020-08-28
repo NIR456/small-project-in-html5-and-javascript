@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> audio project</title>
+<style type="text/css">
+
+body{margin:50px;}
+audio{ width:250px;height:40px;
+       background-color:green;
+}
+
+
+</style>
+</head>
+<body>
+<script>
+f.onchange = e =>{
+  if(f.files[0].type.indexOf('audio/') !== 0){
+    console.warn('no audio file is here');
+    return;
+    }
+  const reader = new FileReader();
+  reader.onload = function(){
+    var str = this.result;
+    console.log(str);
+    const aud = new Audio(str);
+    aud.play();
+    };
+  reader.readAsDataURL(f.files[0]);
+  }
+
+
+</script>
+PLAY MUSIC<br/><br/><audio controls autoplay>
+<source src="E:\Audio song\Concerto for 2 Oboes, Op.mp3" type="audio/mp3" id="f">
+
+</audio>
+</body>
+</html>
+
+
+
+
+
+
+
